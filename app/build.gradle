@@ -44,6 +44,17 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
     implementation 'com.squareup.retrofit2:converter-protobuf:2.0.2'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.5.0'
+
+    //自定义多状态View
+    //一个支持多种状态的自定义View,可以方便的切换到：
+    //加载中视图
+   // 错误视图
+    //空数据视图
+    //网络异常视图
+    //内容视图
+    //https://blog.csdn.net/qy1387/article/details/50535920
+    implementation 'com.classic.common:multiple-status-view:1.3'
+
     api 'org.greenrobot:eventbus:3.1.0'
     //MultiDex 是解决出现的65535 问题它多发生在 2.x 版本的设备上
     //api 'com.android.support:multidex:1.0.1'
@@ -51,4 +62,7 @@ dependencies {
     api 'com.tencent.bugly:crashreport:latest.release'
     api 'com.tencent.bugly:nativecrashreport:latest.release'
     api  'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    //leakCanary内存检测工具
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 }

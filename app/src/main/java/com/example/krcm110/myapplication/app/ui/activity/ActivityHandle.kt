@@ -1,22 +1,16 @@
-package com.example.krcm110.myapplication.app.view.activity
+package com.example.krcm110.myapplication.app.ui.activity
 
-import android.content.Context
 import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.util.Log
-import android.view.Gravity
-import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.krcm110.myapplication.com.view.SuperActivity
-import java.lang.reflect.Parameter
 
 class ActivityHandle: SuperActivity()
 {

@@ -1,7 +1,6 @@
 package com.example.krcm110.myapplication.app.view.custome.component
 
 import android.content.Context
-import android.util.AttributeSet
 import android.view.MotionEvent
 import android.widget.LinearLayout
 import com.example.krcm110.myapplication.com.tools.LogUtil

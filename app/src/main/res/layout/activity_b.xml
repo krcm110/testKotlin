@@ -11,7 +11,7 @@
             android:text="btnB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-        <android.app.MediaRouteButton
+        <Button
             android:id="@+id/btnShowSystemAlertDialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

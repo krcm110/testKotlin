@@ -17,13 +17,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".app.view.activity.MainActivity">
+        <activity android:name="com.example.krcm110.myapplication.app.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".app.view.activity.ActivityService"/>
+        <activity android:name="com.example.krcm110.myapplication.app.ui.activity.ActivityService"/>
         <receiver android:name=".app.broadcast.BroadcastAlertDialog">
             <intent-filter>
                 <action android:name="com.example.krcm110.myborcast"></action>
@@ -36,16 +36,16 @@
         <service android:name=".com.service.ServiceBinder"/>
         <service android:name=".com.service.ServiceBase"/>
         <service android:name=".app.service.ServiceForeground"/>
-        <activity android:name=".app.view.activity.RetrofitActivity"/>
-        <activity android:name=".app.view.activity.ActitityB" android:launchMode="singleTask"/>
-        <activity android:name=".app.view.activity.ActitityC"/>
-        <activity android:name=".app.view.activity.ActitityD"/>
+        <activity android:name="com.example.krcm110.myapplication.app.ui.activity.RetrofitActivity"/>
+        <activity android:name="com.example.krcm110.myapplication.app.ui.activity.ActitityB" android:launchMode="singleTask"/>
+        <activity android:name="com.example.krcm110.myapplication.app.ui.activity.ActitityC"/>
+        <activity android:name="com.example.krcm110.myapplication.app.ui.activity.ActitityD"/>
         <!--测试动态布局-->
-        <activity android:name=".app.view.activity.OnlyJavaLayoutActivity"/>
+        <activity android:name="com.example.krcm110.myapplication.app.ui.activity.OnlyJavaLayoutActivity"/>
         <!--测试Handler的消息机制-->
-        <activity android:name=".app.view.activity.ActivityHandle"/>
+        <activity android:name="com.example.krcm110.myapplication.app.ui.activity.ActivityHandle"/>
         <!--测试Activity事件分发机制-->
-        <activity android:name=".app.view.activity.ActivityMotionEvent"/>
+        <activity android:name="com.example.krcm110.myapplication.app.ui.activity.ActivityMotionEvent"/>
         <receiver android:name=".com.broadCast.AndroidStartComplete"
             android:enabled="true"
             android:exported="true">

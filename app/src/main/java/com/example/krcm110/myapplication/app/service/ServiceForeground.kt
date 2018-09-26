@@ -7,12 +7,11 @@ import com.example.krcm110.myapplication.R
 import android.app.PendingIntent
 import android.graphics.BitmapFactory
 import android.os.Build
-import com.example.krcm110.myapplication.app.view.activity.MainActivity
+import com.example.krcm110.myapplication.app.ui.activity.MainActivity
 import android.support.v4.app.NotificationCompat
 import android.util.Log
 import com.example.krcm110.myapplication.com.service.ServiceBase
 import com.example.krcm110.myapplication.com.tools.LogUtil
-import java.util.*
 
 
 class ServiceForeground: ServiceBase()

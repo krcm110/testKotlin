@@ -3,10 +3,10 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <!--Windows 最上方的状态栏的背景效果-->
-        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <!--Windows 最上方的标题栏背景效果-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimary</item>-->
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
-
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 </resources>

@@ -14,7 +14,7 @@ abstract class BaseActivity<V, T:BasePresenter<V>>:AppCompatActivity()
     {
         super.onCreate(savedInstanceState)
         mPresenter = createPrensenter();
-        mPresenter?.attachActivity(this as V);
+        mPresenter?.attachView(this as V);
     }
 
     protected override fun onDestroy() {

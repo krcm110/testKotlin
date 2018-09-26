@@ -1,4 +1,4 @@
-package com.example.krcm110.myapplication.app.view.activity
+package com.example.krcm110.myapplication.app.ui.activity
 
 import android.app.NotificationManager
 import android.content.Context
@@ -7,7 +7,6 @@ import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.os.Message
-import android.os.SystemClock
 import android.util.Log
 import android.view.Gravity
 import android.widget.ArrayAdapter
@@ -16,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.AdapterView
 import com.example.krcm110.myapplication.app.notifacation.NotificationHelper
 import com.example.krcm110.myapplication.app.service.ServiceForeground
-import com.example.krcm110.myapplication.com.broadCast.AndroidStartComplete
 import com.example.krcm110.myapplication.com.view.SuperActivity
 import kotlin.collections.ArrayList
 

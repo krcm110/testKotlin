@@ -1,4 +1,4 @@
-package com.example.krcm110.myapplication.app.view.activity
+package com.example.krcm110.myapplication.app.ui.activity
 
 import android.os.Bundle
 import android.view.MotionEvent
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.TextView
 import com.example.krcm110.myapplication.app.view.custome.component.MyViewGroup
 import com.example.krcm110.myapplication.app.view.custome.view.MyTextView
 import com.example.krcm110.myapplication.com.tools.LogUtil

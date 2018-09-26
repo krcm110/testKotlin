@@ -1,12 +1,10 @@
-package com.example.krcm110.myapplication.app.view.activity
+package com.example.krcm110.myapplication.app.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
 import com.example.krcm110.myapplication.R
-import com.example.krcm110.myapplication.app.broadcast.AppBoradCast
 import com.example.krcm110.myapplication.com.view.ProApplication
 import com.example.krcm110.myapplication.com.view.SuperActivity
-import kotlinx.android.synthetic.main.activity_b.*
 import kotlinx.android.synthetic.main.activity_d.*
 
 class ActitityD: SuperActivity() {

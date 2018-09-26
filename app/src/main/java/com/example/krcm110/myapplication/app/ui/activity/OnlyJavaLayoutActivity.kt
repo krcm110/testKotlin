@@ -1,4 +1,4 @@
-package com.example.krcm110.myapplication.app.view.activity
+package com.example.krcm110.myapplication.app.ui.activity
 
 import android.content.res.Resources
 import android.graphics.Color
