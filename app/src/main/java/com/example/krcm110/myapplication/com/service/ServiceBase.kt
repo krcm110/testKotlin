@@ -3,7 +3,7 @@ package com.example.krcm110.myapplication.com.service
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import com.example.krcm110.myapplication.com.tools.LogUtil
+import com.example.krcm110.myapplication.com.Utils.LogUtil
 
 open class ServiceBase: Service()
 {

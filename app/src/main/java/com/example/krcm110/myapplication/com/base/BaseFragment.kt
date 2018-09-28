@@ -38,11 +38,12 @@ abstract class BaseFragment: Fragment() {
     }
 
 
+    /**
+     *多种状态的 View 的切换进行了事件监听
+     */
     open val mRetryClickListener: View.OnClickListener = View.OnClickListener {
         lazyLoad()
     }
-
-
 
 
     //Android应用开发过程中，ViewPager同时加载多个fragment，
@@ -84,10 +85,14 @@ abstract class BaseFragment: Fragment() {
 
     /**
      * 加载布局
+     * 返回布局的ID
      */
     @LayoutRes
     abstract fun getLayoutId():Int
 
+    /**
+     * 销毁时候用LeakCanary监听Fragment的内存泄漏情况
+     */
     override fun onDestroy() {
         super.onDestroy()
         MyApplication.getRefWatcher(activity!!)?.watch(activity)

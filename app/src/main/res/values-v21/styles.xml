@@ -1,15 +1,17 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <!--Windows 最上方的标题栏背景效果-->
         <!--<item name="colorPrimaryDark">@color/colorPrimary</item>-->
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
-        <!--虚拟按键-->
+
+        <!--状态栏透明-->
+        <item name="android:windowTranslucentStatus">false</item>
+        <!--虚拟按键半透明-->
         <item name="android:windowTranslucentNavigation">true</item>
-        <!--修改状态栏的背景颜色-->
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 </resources>

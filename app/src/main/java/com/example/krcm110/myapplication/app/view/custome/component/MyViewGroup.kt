@@ -3,7 +3,7 @@ package com.example.krcm110.myapplication.app.view.custome.component
 import android.content.Context
 import android.view.MotionEvent
 import android.widget.LinearLayout
-import com.example.krcm110.myapplication.com.tools.LogUtil
+import com.example.krcm110.myapplication.com.Utils.LogUtil
 
 class MyViewGroup: LinearLayout
 {

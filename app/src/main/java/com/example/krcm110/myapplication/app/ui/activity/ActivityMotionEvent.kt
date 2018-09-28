@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import com.example.krcm110.myapplication.app.view.custome.component.MyViewGroup
 import com.example.krcm110.myapplication.app.view.custome.view.MyTextView
-import com.example.krcm110.myapplication.com.tools.LogUtil
+import com.example.krcm110.myapplication.com.Utils.LogUtil
 import com.example.krcm110.myapplication.com.view.SuperActivity
 
 class ActivityMotionEvent: SuperActivity()

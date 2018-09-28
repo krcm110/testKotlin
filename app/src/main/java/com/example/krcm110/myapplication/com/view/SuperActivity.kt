@@ -10,7 +10,7 @@ import android.widget.EditText
 import android.os.IBinder
 import android.os.PersistableBundle
 import android.view.inputmethod.InputMethodManager
-import com.example.krcm110.myapplication.com.tools.ViewTools
+import com.example.krcm110.myapplication.com.Utils.ViewTools
 
 
 open class SuperActivity: AppCompatActivity() {

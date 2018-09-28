@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,25 +18,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.krcm110.myapplication.app.ui.activity.MainActivity">
+
+        <activity android:name="com.example.krcm110.myapplication.app.ui.activity.ActivityLaunch"
+            android:screenOrientation="portrait"><!--启动时强制竖屏-->
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".app.ui.activity.MainActivity"/>
         <activity android:name="com.example.krcm110.myapplication.app.ui.activity.ActivityService"/>
-        <receiver android:name=".app.broadcast.BroadcastAlertDialog">
-            <intent-filter>
-                <action android:name="com.example.krcm110.myborcast"></action>
-            </intent-filter>
-        </receiver>
-        <service android:name=".app.service.MyAidlService"
-            android:enabled="true"
-            android:exported="true"
-        android:process=":aidl"/>
-        <service android:name=".com.service.ServiceBinder"/>
-        <service android:name=".com.service.ServiceBase"/>
-        <service android:name=".app.service.ServiceForeground"/>
         <activity android:name="com.example.krcm110.myapplication.app.ui.activity.RetrofitActivity"/>
         <activity android:name="com.example.krcm110.myapplication.app.ui.activity.ActitityB" android:launchMode="singleTask"/>
         <activity android:name="com.example.krcm110.myapplication.app.ui.activity.ActitityC"/>
@@ -59,5 +52,19 @@
                 </data>
             </intent-filter>
         </receiver>
+
+        <receiver android:name=".app.broadcast.BroadcastAlertDialog">
+            <intent-filter>
+                <action android:name="com.example.krcm110.myborcast"></action>
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".com.service.ServiceBinder"/>
+        <service android:name=".com.service.ServiceBase"/>
+        <service android:name=".app.service.ServiceForeground"/>
+        <service android:name=".app.service.MyAidlService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":aidl"/>
     </application>
 </manifest>

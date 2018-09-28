@@ -11,7 +11,7 @@ import com.example.krcm110.myapplication.R
 import com.example.krcm110.myapplication.com.service.ServiceBase
 import com.example.krcm110.myapplication.com.service.ServiceBinder
 import com.example.krcm110.myapplication.app.service.ServiceForeground
-import com.example.krcm110.myapplication.com.tools.LogUtil
+import com.example.krcm110.myapplication.com.Utils.LogUtil
 import com.example.krcm110.myapplication.com.view.SuperActivity
 import kotlinx.android.synthetic.main.activity_service.*
 

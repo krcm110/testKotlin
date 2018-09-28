@@ -5,8 +5,11 @@ import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
 import android.util.Log
+import com.example.krcm110.myapplication.app.application.MyApplication
 import com.example.krcm110.myapplication.com.data.ActivityCollection
+import com.squareup.leakcanary.RefWatcher
 import com.tencent.bugly.crashreport.CrashReport
+import kotlin.properties.Delegates
 
 open class ProApplication:Application()
 {
@@ -18,12 +21,12 @@ open class ProApplication:Application()
         super.onCreate()
         tencentBugly();
         Log.e(TAG,"onCreate")
-
         if (proApplication == null)
         {
             proApplication = ActivityCollection();
         }
     }
+
 
     fun addActivity(activity:Activity)
     {

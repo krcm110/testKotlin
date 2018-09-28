@@ -1,10 +1,7 @@
-package com.example.krcm110.myapplication.com.tools
+package com.example.krcm110.myapplication.com.Utils
 
 import android.content.Context
 import android.os.Environment
-import android.os.Environment.DIRECTORY_PICTURES
-import android.os.Environment.MEDIA_MOUNTED
-
 
 
 class PatchTools {
