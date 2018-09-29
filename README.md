@@ -1,0 +1,11 @@
+这是一个基于MVP的Kotlin项目。
+运用到的第三方库有
+1.lottie
+2.okhttp+Retrofit+rxjava
+3.eventbus
+4.leakcanary
+5.FlycoTabLayout_Lib
+6.hipermission
+7.gild
+8.bugly
+9.
