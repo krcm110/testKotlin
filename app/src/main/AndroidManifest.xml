@@ -20,6 +20,7 @@
         android:theme="@style/AppTheme">
 
         <activity android:name="com.example.krcm110.myapplication.app.ui.activity.ActivityLaunch"
+            android:theme="@style/StarAppTheme"
             android:screenOrientation="portrait"><!--启动时强制竖屏-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

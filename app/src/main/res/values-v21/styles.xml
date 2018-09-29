@@ -12,6 +12,7 @@
         <item name="android:windowTranslucentStatus">false</item>
         <!--虚拟按键半透明-->
         <item name="android:windowTranslucentNavigation">true</item>
+        <!--状态栏全透明-->
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 </resources>

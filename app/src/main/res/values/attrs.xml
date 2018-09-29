@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <declare-styleable name="CircleIcon">
         <attr name="circleText" format="string" />
         <attr name="dd" format="string"/>
@@ -8,7 +7,6 @@
         <attr name="circleTextSize" format="dimension" />
         <attr name="circleIcon" format="reference" />
     </declare-styleable>
-
     <!--reference某资源的ID-->
     <declare-styleable name="BtnSwitch">
         <attr name="normalStatus" format="reference"></attr>

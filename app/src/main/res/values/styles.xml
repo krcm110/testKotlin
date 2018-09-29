@@ -11,8 +11,10 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
     <style name="AppTheme.NoActionBar.FullScreen">
         <item name="android:windowFullscreen">true</item>
+    </style>
+    <style name="StarAppTheme" parent="AppTheme">
+        <item name="android:windowBackground">@mipmap/pic_longin_nv_01</item>
     </style>
 </resources>
