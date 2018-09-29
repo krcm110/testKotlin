@@ -13,10 +13,29 @@ class HorizontalScrollView (context: Context, attrs: AttributeSet):HorizontalScr
         mGestureDetector = GestureDetector(context, XScrollDetector())
     }
 
+    var startDownX:Float = 0f;
+    var startDownY:Float = 0f;
 
-    override public fun  onInterceptTouchEvent(ev: MotionEvent):Boolean
+    override  fun  onInterceptTouchEvent(ev: MotionEvent):Boolean
     {
-        return super.onInterceptTouchEvent(ev)&& mGestureDetector!!.onTouchEvent(ev);
+        when(ev.action)
+        {
+            MotionEvent.ACTION_DOWN->{
+                startDownX = ev.rawX;
+                startDownY = ev.rawY;
+            }
+            MotionEvent.ACTION_MOVE->{
+                //如果产生了移动
+                if(startDownX!= ev.rawX || startDownY!=ev.y)
+                {
+                    return true;
+                }
+            }
+            MotionEvent.ACTION_UP->{}
+            MotionEvent.ACTION_CANCEL->{}
+
+        }
+      return  super.onInterceptTouchEvent(ev);
     }
     class XScrollDetector: GestureDetector.SimpleOnGestureListener() {
         override public fun  onScroll(e1: MotionEvent, e2: MotionEvent, distanceX:Float, distanceY:Float ) :Boolean {

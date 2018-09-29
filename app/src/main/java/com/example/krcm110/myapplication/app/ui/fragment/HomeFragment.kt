@@ -16,38 +16,53 @@ import com.example.krcm110.myapplication.com.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment: BaseFragment() {
+
     private var mTitle:String = "";
+
+    //Lottie的动画视图
     private var animationView:LottieAnimationView?=null;
+
+    //格式化小数点
+    private val format = java.text.DecimalFormat("#.##")
+
     override fun initView() {
         animationSeekBar.visibility = View.GONE;
         setAnimation();
-        //animationView.cancelAnimation();//取消动画
         seekBar();
     }
 
-    private fun setAnimation()
-    {
-        animationView = lottie_likeanim;
-        animationView?.setAnimation("animation-w465-h465.json");
-        // animationView.loop(true);
-        // animationView.playAnimation();//播放动画
-        //if (animationView.isAnimating()) {
-        // Do something.动画正在运行
-        // }
-//progress范围0~1f，设置动画进度
-        animationView?.setProgress(0f);
-// 自定义动画时长，此处利用ValueAnimator值动画来实时更新AnimationView的进度来达到控制动画时长。
-        var animator:ValueAnimator  = ValueAnimator.ofFloat(0f, 1f).setDuration(4000);
-        animator.addUpdateListener(myAnimatorUpdateListener1);
-        animator.start();//启动动画
-    }
 
+    /**
+     * 设置SeekBar
+     */
     private fun seekBar()
     {
         animationSeekBar.setOnSeekBarChangeListener(myOnSeekBarChangeListener);
     }
 
-    val format = java.text.DecimalFormat("#.##")
+    /**
+     * 设置动画
+     */
+    private fun setAnimation()
+    {
+        animationView = lottie_likeanim;
+        animationView?.setAnimation("animation-w465-h465.json");
+        // animationView.loop(true);一直循环播放
+        // animationView.playAnimation();//开始播放动画
+        //if (animationView.isAnimating()) {//查看是否正在播放动画
+        // Do something.动画正在运行
+        // }
+        //progress范围0~1f，设置动画进度
+        animationView?.setProgress(0f);
+        // 自定义动画时长，此处利用ValueAnimator值动画来实时更新AnimationView的进度来达到控制动画时长。
+        var animator:ValueAnimator  = ValueAnimator.ofFloat(0f, 1f).setDuration(4000);
+        animator.addUpdateListener(myAnimatorUpdateListener1);
+        animator.start();//启动动画
+    }
+
+    /**
+     * 动画播放更新事件回调
+     */
     private var myAnimatorUpdateListener1: ValueAnimator.AnimatorUpdateListener =(object:ValueAnimator.AnimatorUpdateListener
     {
         override fun onAnimationUpdate(animation: ValueAnimator?) {
@@ -67,13 +82,10 @@ class HomeFragment: BaseFragment() {
             animationView?.setProgress(progress / 100f);
             progressText.setText(format.format(progress).toString()+"%");
         }
-
         override fun onStartTrackingTouch(seekBar: SeekBar?) {
         }
-
         override fun onStopTrackingTouch(seekBar: SeekBar?) {
         }
-
     });
 
     override fun lazyLoad() {

@@ -7,7 +7,7 @@ import android.graphics.PorterDuff
 import android.util.AttributeSet
 import com.example.krcm110.myapplication.R
 
-class BtnImageSwitch(contxt:Context,attrs: AttributeSet):BtnSwitch(contxt,attrs)
+open class BtnImageSwitch(contxt:Context, attrs: AttributeSet):BtnSwitch(contxt,attrs)
 {
     /**
      * 默认显示的图片
