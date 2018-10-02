@@ -4,16 +4,13 @@ import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
-import android.widget.Toast
-import com.example.krcm110.myapplication.com.view.custom.BtnImageSwitch
+import com.example.krcm110.myapplication.com.view.custom.button.ImageBtnSwitch
 
-class ButtonSwitchChild(context:Context,attrs: AttributeSet): BtnImageSwitch(context,attrs)
+class ButtonSwitchChild: ImageBtnSwitch
 {
-    init {
-        setOnClickListener {
-            Toast.makeText(context,id,Toast.LENGTH_SHORT).show();
-        }
-    }
+
+    constructor(context: Context):super(context)
+    constructor(context: Context,attributeSet: AttributeSet):super(context,attributeSet)
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean
     {

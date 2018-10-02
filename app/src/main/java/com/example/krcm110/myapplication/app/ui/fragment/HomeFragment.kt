@@ -1,18 +1,16 @@
 package com.example.krcm110.myapplication.app.ui.fragment
 
 import android.animation.ValueAnimator
-import android.opengl.Visibility
 import android.os.Bundle
-import android.support.annotation.FloatRange
 import android.view.View
+import android.view.ViewGroup
 import android.widget.SeekBar
-import android.widget.Toast
 import com.airbnb.lottie.LottieAnimationView
 import com.example.krcm110.myapplication.R
-import com.example.krcm110.myapplication.R.string.version
 import com.example.krcm110.myapplication.app.showToast
-import com.example.krcm110.myapplication.com.Utils.LogUtil
 import com.example.krcm110.myapplication.com.base.BaseFragment
+import com.example.krcm110.myapplication.com.view.custom.button.ImageBtnSwitch
+import com.example.krcm110.myapplication.com.view.custom.button.supper.BtnSwitch
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment: BaseFragment() {
@@ -29,6 +27,15 @@ class HomeFragment: BaseFragment() {
         animationSeekBar.visibility = View.GONE;
         setAnimation();
         seekBar();
+
+        var btnSwitchChild: BtnSwitch = ImageBtnSwitch(activity!!.baseContext);
+        var viewGroup:ViewGroup.LayoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,100);
+
+        btnSwitchChild.setOnClickListener {
+            image4.setToggle();
+            showToast("你好啊${image4.getSelectedStatus()}")
+        }
+        parentLayout.addView(btnSwitchChild,viewGroup);
     }
 
 
