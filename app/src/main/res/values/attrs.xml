@@ -8,6 +8,7 @@
         <attr name="circleIcon" format="reference" />
     </declare-styleable>
     <!--reference某资源的ID-->
+    <!--自定义按钮切换属性BtnSwitch-->
     <declare-styleable name="BtnSwitch">
         <attr name="normalStatus" format="reference"></attr>
         <attr name="selectStatus" format="reference"></attr>

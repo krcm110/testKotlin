@@ -9,7 +9,7 @@ import com.example.krcm110.myapplication.R
 import com.example.krcm110.myapplication.com.view.custom.button.`interface`.ISwitchBtn
 import com.example.krcm110.myapplication.com.view.custom.button.supper.BtnSwitch
 
-open class ImageButtonFilter: BtnSwitch, ISwitchBtn
+class ImageButtonFilter: BtnSwitch, ISwitchBtn
 {
 
     constructor(context:Context):super(context)

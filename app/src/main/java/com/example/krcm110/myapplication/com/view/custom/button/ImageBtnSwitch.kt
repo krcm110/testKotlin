@@ -9,7 +9,7 @@ import com.example.krcm110.myapplication.R
 import com.example.krcm110.myapplication.com.view.custom.button.`interface`.ISwitchBtnImage
 import com.example.krcm110.myapplication.com.view.custom.button.supper.BtnSwitch
 
-open class ImageBtnSwitch: BtnSwitch, ISwitchBtnImage
+class ImageBtnSwitch: BtnSwitch, ISwitchBtnImage
 {
     /**
      * 切换后的图片
