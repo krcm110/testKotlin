@@ -8,7 +8,7 @@ import android.widget.SeekBar
 import com.airbnb.lottie.LottieAnimationView
 import com.example.krcm110.myapplication.R
 import com.example.krcm110.myapplication.app.showToast
-import com.example.krcm110.myapplication.com.base.BaseFragment
+import com.example.krcm110.myapplication.com.view.mvp.BaseFragment
 import com.example.krcm110.myapplication.com.view.custom.button.ImageBtnSwitch
 import com.example.krcm110.myapplication.com.view.custom.button.supper.BtnSwitch
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -37,7 +37,6 @@ class HomeFragment: BaseFragment() {
         }
         parentLayout.addView(btnSwitchChild,viewGroup);
     }
-
 
     /**
      * 设置SeekBar

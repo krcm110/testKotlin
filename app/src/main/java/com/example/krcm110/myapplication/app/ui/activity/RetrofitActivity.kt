@@ -20,12 +20,11 @@ class RetrofitActivity:SuperActivity()
 
     override fun onDestroy() {
         super.onDestroy()
-
     }
 
     fun connetDouBan()
     {
-        var retrofit = RetrofitBase.getRetrofit(baseURL);
+        var retrofit = RetrofitBase.getRetrofit();
         var iapiDouBan = retrofit.create(IapiDouBan::class.java)
         var requestData = iapiDouBan.getTop250(1,20).enqueue(object :Callback<MovieSubject>{
 
@@ -42,7 +41,7 @@ class RetrofitActivity:SuperActivity()
 
     fun rxConnetDouban()
     {
-        var retorfit:Retrofit = RetrofitBase.getRetrofit(baseURL);
+        var retorfit:Retrofit = RetrofitBase.getRetrofit();
         var iapiDouBan = retorfit.create(IapiDouBan::class.java)
         iapiDouBan.postRXTop250(1,20).observeOn(Schedulers.io()).subscribe(object: Consumer<MovieSubject> {
             override fun accept(t: MovieSubject) {
@@ -54,7 +53,7 @@ class RetrofitActivity:SuperActivity()
 
     fun rxConcatDouban()
     {
-        var retorfit:Retrofit = RetrofitBase.getRetrofit(baseURL);
+        var retorfit:Retrofit = RetrofitBase.getRetrofit();
         var iapiDouBan = retorfit.create(IapiDouBan::class.java)
         iapiDouBan.postRXTop250(1,5).observeOn(Schedulers.io()).subscribe(object: Observer<MovieSubject>
         {

@@ -2,11 +2,11 @@ package com.example.krcm110.myapplication.com.view.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import com.example.krcm110.myapplication.com.view.activity.mvc.BasePresenter
+import com.example.krcm110.myapplication.com.view.activity.mvc.MvpBasePresenter
 
-open abstract class BaseFragment<V, T:BasePresenter<V>>: Fragment()
+open abstract class MvpBaseFragment<V, T:MvpBasePresenter<V>>: Fragment()
 {
-    var mBasePresenter:BasePresenter<V>? = null;
+    var mBasePresenter:MvpBasePresenter<V>? = null;
 
     @SuppressWarnings("unChecked")
     @Override

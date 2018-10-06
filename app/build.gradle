@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
+
+
 android {
-    compileSdkVersion 28
+    compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.krcm110.myapplication"
         minSdkVersion 15
-        targetSdkVersion 28
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -32,11 +32,11 @@ dependencies {
     implementation "org.jetbrains.anko:anko:$anko_version"
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    //androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.squareup.okhttp3:okhttp:3.6.0'
     implementation 'com.squareup.retrofit2:retrofit:2.0.2'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.1'
+   // implementation 'io.reactivex.rxjava2:rxjava:2.1.1'
     implementation 'com.google.code.gson:gson:2.6.2'
     //Gson 库
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
@@ -69,6 +69,7 @@ dependencies {
     implementation 'me.weyye.hipermission:library:1.0.7'
     // 底部菜单
     implementation('com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar') {
+        //闭包，防止整体更新
         exclude group: 'com.android.support', module: 'support-v4'
     }
 
@@ -76,4 +77,16 @@ dependencies {
     //lottie添加动画效果
     implementation 'com.airbnb.android:lottie:2.1.0'
 
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-7'
+
+
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    //implementation 'io.reactivex:rxandroid:1.1.0'
+    //# https://mvnrepository.com/artifact/com.android.support/recyclerview-v7
+   // 'com.android.support:recyclerview-v7:jar:28.0.0'
+
+    //implementation ' com.android.support:recyclerview-v7:jar:28.0.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.0.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.0'
 }

@@ -4,32 +4,40 @@ import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.Message
+import android.os.PersistableBundle
 import android.support.v4.app.FragmentTransaction
 import android.view.Gravity
 import android.view.KeyEvent
+import android.view.MotionEvent
+import android.view.View
 import android.widget.ArrayAdapter
 import com.example.krcm110.myapplication.R
 import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.AdapterView
+import com.example.krcm110.myapplication.app.checkDeviceHasNavigationBar
 import com.example.krcm110.myapplication.app.dip2px
 import com.example.krcm110.myapplication.app.mvp.model.ben.TabEntity
 import com.example.krcm110.myapplication.app.notifacation.NotificationHelper
 import com.example.krcm110.myapplication.app.service.ServiceForeground
-import com.example.krcm110.myapplication.com.base.BaseActivity
+import com.example.krcm110.myapplication.com.view.mvp.BaseActivity
 import com.example.krcm110.myapplication.app.showToast
 import com.example.krcm110.myapplication.app.ui.fragment.DiscoveryFragment
 import com.example.krcm110.myapplication.app.ui.fragment.HomeFragment
 import com.example.krcm110.myapplication.app.ui.fragment.HotFragment
 import com.example.krcm110.myapplication.app.ui.fragment.MineFragment
+import com.example.krcm110.myapplication.com.Utils.LogUtil
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
+import kotlinx.android.synthetic.main.custom_title.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import kotlin.collections.ArrayList
 
 class MainActivity : BaseActivity() {
+
 
     private val mTitles = arrayOf("闯关", "发现","", "佳作", "诵读")
     // 未被选中的图标
@@ -37,40 +45,40 @@ class MainActivity : BaseActivity() {
     // 被选中的图标
     private val mIconSelectIds = intArrayOf(R.mipmap.btn_zjm_cg_bottom_pre, R.mipmap.btn_zjm_fx_bottom_pre,R.mipmap.dot, R.mipmap.btn_zjm_jz_bottom_pre, R.mipmap.btn_zjm_sd_bottom_pre)
 
-    //推出程序的时间
+    //推出程序第一次的按键时间
     private var mExitTime: Long = 0
 
+    /**
+     * 闯关Fragment
+     */
     private var mHomeFragment: HomeFragment? = null
+
+    /**
+     * 发现Fragment
+     */
     private var mDiscoveryFragment: DiscoveryFragment? = null
+
+    /**
+     * 佳作Fragment
+     */
     private var mHotFragment: HotFragment? = null
+
+    /**
+     * 诵读Fragment
+     */
     private var mMineFragment: MineFragment? = null
+    /**
+     * 记录当前选择的Fragment的Index
+     */
     private var mIndex:Int = 0;
 
+    /**
+     * 底部导航栏的数据格式
+     * 1.Title
+     * 2.未被选中的图片
+     * 3.选中后的图片
+     */
     private val mTabEntities = java.util.ArrayList<CustomTabEntity>()
-    override fun layoutId(): Int {
-        return R.layout.activity_main;
-    }
-
-    fun checkDeviceHasNavigationBar(context: Context): Boolean {
-        var hasNavigationBar = false
-        val rs = context.resources
-        val id = rs.getIdentifier("config_showNavigationBar", "bool", "android")
-        if (id > 0) {
-            hasNavigationBar = rs.getBoolean(id)
-        }
-        try {
-            val systemPropertiesClass = Class.forName("android.os.SystemProperties")
-            val m = systemPropertiesClass.getMethod("get", String::class.java)
-            val navBarOverride = m.invoke(systemPropertiesClass, "qemu.hw.mainkeys") as String
-            if ("1" == navBarOverride) {
-                hasNavigationBar = false
-            } else if ("0" == navBarOverride) {
-                hasNavigationBar = true
-            }
-        } catch (e:Exception) {
-        }
-        return hasNavigationBar
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,11 +90,34 @@ class MainActivity : BaseActivity() {
         }
         initTab();
         addEvent();
+        switchFragment(mIndex)
+
+        btn_BackActivity.setOnTouchListener(object:View.OnTouchListener{
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                when(event?.action)
+                {
+                    MotionEvent.ACTION_DOWN->{
+                        LogUtil.d("你好啊","MotionEvent.ACTION_DOWN");
+                    }
+
+                    MotionEvent.ACTION_MOVE->{
+                        LogUtil.d("你好啊","MotionEvent.ACTION_MOVE");
+                    }
+
+                    MotionEvent.ACTION_UP->{
+                        LogUtil.d("你好啊","MotionEvent.ACTION_UP");
+                    }
+                }
+                return true;
+        }})
     }
 
-
+    override fun layoutId(): Int {
+        return R.layout.activity_main;
+    }
 
     override fun initData() {
+
     }
 
     override fun start() {
@@ -95,6 +126,8 @@ class MainActivity : BaseActivity() {
     override fun initView()
     {
         initDrawerMenu();
+        //改变侧边栏下面部分的界面上蒙的一层阴影
+        drawerLayout.setScrimColor(Color.TRANSPARENT)
     }
 
     override fun onDestroy() {
@@ -185,8 +218,10 @@ class MainActivity : BaseActivity() {
     }
 
 
+
+
     /**
-     * 打开菜单
+     * 打开/关闭抽屉菜单
      */
     fun openDrawerMenu()
     {
@@ -206,6 +241,7 @@ class MainActivity : BaseActivity() {
      * @param position 下标
      */
     private fun switchFragment(position: Int) {
+        //获取Fragment的管理类
         val transaction = supportFragmentManager.beginTransaction()
         hideFragments(transaction)
         when (position) {
@@ -234,14 +270,18 @@ class MainActivity : BaseActivity() {
             } ?: MineFragment.getInstance(mTitles[position]).let {
                 mMineFragment = it
                 transaction.add(R.id.fl_container, it, "mine") }
-
             else -> {
-
             }
         }
         mIndex = position
         tab_layout.currentTab = mIndex
-        transaction.commitAllowingStateLoss()
+        ///提交并且刷新UI
+       // transaction.commitAllowingStateLoss()
+        transaction.commit();
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
+        super.onSaveInstanceState(outState, outPersistentState)
     }
 
     /**
@@ -259,26 +299,37 @@ class MainActivity : BaseActivity() {
 
     //初始化底部菜单
     private fun initTab() {
+        //把
         (0 until mTitles.size)
-                .mapTo(mTabEntities) { TabEntity(mTitles[it], mIconSelectIds[it], mIconUnSelectIds[it]) }
+                .mapTo(mTabEntities) {
+                    TabEntity(mTitles[it], mIconSelectIds[it], mIconUnSelectIds[it])
+                }
+
         //为Tab赋值
         tab_layout.setTabData(mTabEntities)
-        tab_layout.setSpecialTab(2)//屏蔽底部Table导航的第二个按钮点击事件
+        //屏蔽底部Table导航的第二个按钮点击事件
+        tab_layout.setSpecialTab(2)
         tab_layout.setOnTabSelectListener(object : OnTabSelectListener {
             override fun onTabSelect(position: Int) {
+                //底部导航按钮的s事件响应
                 switchFragment(position);
             }
-
             override fun onTabReselect(position: Int) {
             }
         })
     }
 
+    /**
+     *
+     */
     private fun showAnimation()
     {
         showToast("你好啊");
     }
 
+    /**
+     *中心的加号按钮
+     */
     private fun addEvent()
     {
         btn_table_center.onClick{
@@ -290,6 +341,9 @@ class MainActivity : BaseActivity() {
         super.onConfigurationChanged(newConfig)
     }
 
+    /**
+     * 图吃程序
+     */
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             if (System.currentTimeMillis().minus(mExitTime) <= 2000) {

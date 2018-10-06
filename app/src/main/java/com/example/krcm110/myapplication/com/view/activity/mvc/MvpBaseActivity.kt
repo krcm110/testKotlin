@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
 
-abstract class BaseActivity<V, T:BasePresenter<V>>:AppCompatActivity()
+abstract class MvpBaseActivity<V, T:MvpBasePresenter<V>>:AppCompatActivity()
 {
-    var mPresenter:BasePresenter<V>? = null;
+    var mPresenter:MvpBasePresenter<V>? = null;
 
     @SuppressWarnings("unChecked")
     @Override

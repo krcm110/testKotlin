@@ -18,4 +18,8 @@
     <color name="gif_bg">#57979797</color>
     <color name="bg">#EFEFF4</color>
     <color name="icon">#6B6B76</color>
+    <color name="color_gray">#Efefefef</color>
+    <color name="color_item_title">#000000</color>
+    <!-- 默认背景色 -->
+    <color name="backgroundColor">#EEEEEE</color>
 </resources>

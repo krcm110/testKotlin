@@ -10,13 +10,13 @@ import com.example.krcm110.myapplication.app.application.MyApplication
 import com.example.krcm110.myapplication.app.showToast
 import com.example.krcm110.myapplication.com.Utils.AppUtils
 import com.example.krcm110.myapplication.com.Utils.LogUtil
-import com.example.krcm110.myapplication.com.base.BaseActivity
+import com.example.krcm110.myapplication.com.view.mvp.BaseActivity
 import kotlinx.android.synthetic.main.activity_lunch.*
 import me.weyye.hipermission.HiPermission
 import me.weyye.hipermission.PermissionCallback
 import me.weyye.hipermission.PermissionItem
 
-class ActivityLaunch:BaseActivity(){
+class ActivityLaunch: BaseActivity(){
 
     /**
      * 字体1
@@ -29,6 +29,7 @@ class ActivityLaunch:BaseActivity(){
     private var descTypeFace:Typeface? = null;
 
     /**
+     * 属性动画必须调用Cancle不然会OOM
      * 透明动画
      */
     private var alphaAnimation:AlphaAnimation?=null
@@ -76,6 +77,11 @@ class ActivityLaunch:BaseActivity(){
 
     override fun layoutId(): Int {
         return R.layout.activity_lunch
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        alphaAnimation?.let{it.cancel()}
     }
 
     /**

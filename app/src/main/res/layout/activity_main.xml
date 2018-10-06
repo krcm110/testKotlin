@@ -9,21 +9,21 @@
     tools:context=".app.ui.activity.MainActivity">
     <!--添加统一样式的头-->
     <com.example.krcm110.myapplication.app.view.custome.component.TitleLayout
+        android:id="@+id/ma_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </com.example.krcm110.myapplication.app.view.custome.component.TitleLayout>
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawerLayout"
+        android:layout_below="@+id/ma_title"
         android:layout_width="match_parent"
+        android:background="@color/google_red"
         android:layout_height="match_parent">
-
     <FrameLayout
+        android:background="@color/google_red"
         android:id="@+id/fl_container"
-        android:paddingTop="@dimen/dp56"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -69,7 +69,8 @@
             android:layout_height="90dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            app:normalStatus="@mipmap/tab_main_center" />
+            app:normalStatus="@mipmap/tab_main_center"
+            app:selectStatus="@mipmap/tab_main_center"/>
     </RelativeLayout>
     </android.support.v4.widget.DrawerLayout>
 </RelativeLayout>

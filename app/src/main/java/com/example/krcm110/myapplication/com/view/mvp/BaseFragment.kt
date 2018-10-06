@@ -1,4 +1,4 @@
-package com.example.krcm110.myapplication.com.base
+package com.example.krcm110.myapplication.com.view.mvp
 
 import android.os.Bundle
 import android.support.annotation.LayoutRes
@@ -44,6 +44,7 @@ abstract class BaseFragment: Fragment() {
     open val mRetryClickListener: View.OnClickListener = View.OnClickListener {
         lazyLoad()
     }
+
 
 
     //Android应用开发过程中，ViewPager同时加载多个fragment，

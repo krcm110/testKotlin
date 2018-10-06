@@ -59,18 +59,18 @@ class ImageBtnSwitch: BtnSwitch, ISwitchBtnImage
      */
     override fun switch(boolean: Boolean)
     {
-        //如果是自动切换状态
-        if(autoSwitch)
+        //如果是自动切换状态并且选中的图片和默认显示的图片不一样
+        if(autoSwitch && (selectImage!=normalImage))
         {
             status = boolean;
-            if(status)
-            {
-                showSelectImgae();
-            }
-            else
-            {
-                showNormalImgae()
-            }
+                if(status)
+                {
+                    showSelectImgae();
+                }
+                else
+                {
+                    showNormalImgae()
+                }
         }
         else
         {
@@ -137,6 +137,7 @@ class ImageBtnSwitch: BtnSwitch, ISwitchBtnImage
     override fun setToggle()
     {
         status=!status;
+
         if(status)
         {
             showSelectImgae();
@@ -177,7 +178,12 @@ class ImageBtnSwitch: BtnSwitch, ISwitchBtnImage
         {
             val typedArray:TypedArray = context.obtainStyledAttributes(attributeSet, R.styleable.BtnSwitch);
             normalImage = typedArray.getResourceId(R.styleable.BtnSwitch_normalStatus,R.mipmap.ic_launcher);
-            selectImage = typedArray.getResourceId(R.styleable.BtnSwitch_selectStatus,0);
+            selectImage = typedArray.getResourceId(R.styleable.BtnSwitch_selectStatus,R.mipmap.ic_launcher);
+            //如果默认的显示的图片有值且选中的图片又没有设初始值就把选中的图片变成变成默认的图片
+            if((normalImage!=R.mipmap.ic_launcher && selectImage>0) && selectImage==R.mipmap.ic_launcher)
+            {
+                selectImage = normalImage;
+            }
             autoSwitch = typedArray.getBoolean(R.styleable.BtnSwitch_autoSwitch,true);
             typedArray.recycle();
         }

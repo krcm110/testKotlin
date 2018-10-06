@@ -2,7 +2,7 @@ package com.example.krcm110.myapplication.app.ui.fragment
 
 import android.os.Bundle
 import com.example.krcm110.myapplication.R
-import com.example.krcm110.myapplication.com.base.BaseFragment
+import com.example.krcm110.myapplication.com.view.mvp.BaseFragment
 
 class DiscoveryFragment: BaseFragment() {
     private var mTitle:String? = "";

@@ -22,6 +22,9 @@
     <string name="gif">GIF</string>
     <string name="load_retry">Failed to load，Click to try again</string>
     <string name="search">Search</string>
+    <string name="no_network">当前没有网络</string>
+    <string name="data_error">数据加载出错</string>
+    <string name="loading_text">数据加载中</string>
     <string name="sort">sort</string>
     <string name="now">Now</string>
     <string name="week">Past week</string>
@@ -99,7 +102,7 @@
     <string name="channel_default">Default events</string>
     <string name="channel_low">Low events</string>
     <string name="channel_media">Media events</string>
-
+    <string name="search_transition_name">transition_reveal</string>
     <string-array name="sorts">
         <!--最受欢迎的-->
         <item>Popular</item>

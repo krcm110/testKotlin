@@ -1,10 +1,8 @@
 package com.example.krcm110.myapplication.app.ui.fragment
 
 import android.os.Bundle
-import com.airbnb.lottie.LottieAnimationView
 import com.example.krcm110.myapplication.R
-import com.example.krcm110.myapplication.com.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_home.*
+import com.example.krcm110.myapplication.com.view.mvp.BaseFragment
 
 class HotFragment: BaseFragment() {
     private var mTitle:String = "";

@@ -1,4 +1,4 @@
-package com.example.krcm110.myapplication.com.base
+package com.example.krcm110.myapplication.com.view.mvp
 
 interface IBaseView
 {

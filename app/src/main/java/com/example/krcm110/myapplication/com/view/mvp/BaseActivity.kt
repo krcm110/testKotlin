@@ -1,4 +1,4 @@
-package com.example.krcm110.myapplication.com.base
+package com.example.krcm110.myapplication.com.view.mvp
 
 import android.content.Context
 import android.os.Build
@@ -19,8 +19,8 @@ abstract class BaseActivity: AppCompatActivity()
     protected var mLayoutStatusView: MultipleStatusView? = null
 
     /**
+     * onWindowFocusChanged当这个窗体或得焦点或者市区焦点的时候触发
      * 沉浸式模式
-
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus && Build.VERSION.SDK_INT >= 19) {
