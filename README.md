@@ -1,6 +1,6 @@
 这是一个基于MVP的Kotlin项目。
-运用到的第三方库有
-1.lottie\n
+# 一级标题运用到的第三方库有
+1.lottie<br>
 2.okhttp+Retrofit+rxjava
 3.eventbus
 4.leakcanary
