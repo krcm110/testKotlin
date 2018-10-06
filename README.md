@@ -1,5 +1,5 @@
 这是一个基于MVP的Kotlin项目。
-# 一级标题运用到的第三方库有
+# 运用到的第三方库有
 1.lottie<br>
 2.okhttp+Retrofit+rxjava<br>
 3.eventbus<br>
