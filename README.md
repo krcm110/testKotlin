@@ -6,7 +6,7 @@
 4.leakcanary<br>
 5.FlycoTabLayout_Lib<br>
 6.hipermission<br>
-7.gild<br>
+7.glid<br>
 8.bugly<br>
 9.SmartRefreshLayout<br>
 10.multiple-status-view<br>
