@@ -2,26 +2,22 @@ package com.example.krcm110.myapplication.com.view.custom.button.supper
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.MotionEvent
 import android.widget.ImageView
-import org.jetbrains.anko.attr
-import java.util.jar.Attributes
 
-open abstract class BtnSwitch: ImageView
+open abstract class BtnSwitch(contex:Context,attrs:AttributeSet?): ImageView(contex,attrs)
 {
     /**
      * 选中前的按钮
      */
-    protected var normalImage = 0;
+    protected var normalImage = 0
+        get
 
     /**
      * 当前选中的状态
      */
     protected var status:Boolean = false
-
-    constructor(context: Context):this(context,null)
-    constructor(contex:Context,attrs:AttributeSet?):super(contex,attrs)
+        get
 
     override fun onTouchEvent(event: MotionEvent?): Boolean
     {
@@ -32,7 +28,7 @@ open abstract class BtnSwitch: ImageView
              */
             MotionEvent.ACTION_DOWN->
             {
-                    switch(true);
+                   switch(true)
             }
             /**
              * 当鼠标移除或者松开的时候
@@ -41,9 +37,9 @@ open abstract class BtnSwitch: ImageView
             {
                 if(event?.action==MotionEvent.ACTION_UP)
                 {
-                    performClick();
+                    performClick()
                 }
-                    switch(false);
+                    switch(false)
             }
         }
         return true;

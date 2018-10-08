@@ -6,10 +6,9 @@ import android.graphics.Color
 import android.graphics.PorterDuff
 import android.util.AttributeSet
 import com.example.krcm110.myapplication.R
-import com.example.krcm110.myapplication.com.view.custom.button.`interface`.ISwitchBtnImage
 import com.example.krcm110.myapplication.com.view.custom.button.supper.BtnSwitch
 
-class ImageBtnSwitch: BtnSwitch, ISwitchBtnImage
+class ImageBtnSwitch(contex:Context, attrs:AttributeSet?): BtnSwitch(contex,attrs), ISwitchBtnImage
 {
     /**
      * 切换后的图片
@@ -21,15 +20,8 @@ class ImageBtnSwitch: BtnSwitch, ISwitchBtnImage
      */
     private var autoSwitch:Boolean = false;
 
-
-    constructor(context:Context):super(context)
-    {
-        retrieveAttributes(context,null)
-    }
-
-    constructor(context: Context,attributeSet: AttributeSet):super(context,attributeSet)
-    {
-        retrieveAttributes(context,attributeSet)
+    init {
+        retrieveAttributes(context,attrs)
     }
 
     /**

@@ -22,4 +22,7 @@
     <color name="color_item_title">#000000</color>
     <!-- 默认背景色 -->
     <color name="backgroundColor">#EEEEEE</color>
+    <!-- title 半透明背景颜色 -->
+    <color name="color_title_bg">#CCFFFFFF</color>
+    <color name="color_darker_gray">#aaa</color>
 </resources>

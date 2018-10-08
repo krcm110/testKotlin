@@ -4,13 +4,12 @@ import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.SeekBar
 import com.airbnb.lottie.LottieAnimationView
 import com.example.krcm110.myapplication.R
 import com.example.krcm110.myapplication.app.showToast
 import com.example.krcm110.myapplication.com.view.mvp.BaseFragment
-import com.example.krcm110.myapplication.com.view.custom.button.ImageBtnSwitch
-import com.example.krcm110.myapplication.com.view.custom.button.supper.BtnSwitch
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment: BaseFragment() {
@@ -28,12 +27,13 @@ class HomeFragment: BaseFragment() {
         setAnimation();
         seekBar();
 
-        var btnSwitchChild: BtnSwitch = ImageBtnSwitch(activity!!.baseContext);
+      //  var btnSwitchChild: BtnSwitch = ImageBtnSwitch(activity!!.baseContext,null);
+        var btnSwitchChild:Button = Button(context);
         var viewGroup:ViewGroup.LayoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,100);
 
         btnSwitchChild.setOnClickListener {
-            image4.setToggle();
-            showToast("你好啊${image4.getSelectedStatus()}")
+            //image4.setToggle();
+            //showToast("你好啊${image4.getSelectedStatus()}")
         }
         parentLayout.addView(btnSwitchChild,viewGroup);
     }

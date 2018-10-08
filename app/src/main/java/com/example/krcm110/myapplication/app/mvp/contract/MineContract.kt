@@ -20,6 +20,9 @@ class HomeContract {
         fun showError(msg: String, errorCode: Int)
     }
 
+    /**
+     * 定于Presenter的接口
+     */
     interface Presenter : IPresenter<View> {
 
         /**
@@ -31,8 +34,6 @@ class HomeContract {
          * 加载更多数据
          */
         fun loadMoreData()
-
-
     }
 }
 

@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
-            <com.example.krcm110.myapplication.com.view.custom.button.ImageButtonFilter
+           <!-- <com.example.krcm110.myapplication.com.view.custom.button.ImageButtonFilter
                 android:id="@+id/image1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -28,13 +28,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:normalStatus="@mipmap/ic_launcher"/>
-            <com.example.krcm110.myapplication.com.view.custom.button.ImageBtnSwitch
+           <com.example.krcm110.myapplication.com.view.custom.button.ImageBtnSwitch
                 android:id="@+id/image4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:normalStatus="@mipmap/btn_zjm_lt_bottom_nor"
                 app:selectStatus="@mipmap/btn_zjm_lt_bottom_pre"
                 app:autoSwitch="true"/>
+             <Button
+     android:id="@+id/image4"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content" />-->
         </LinearLayout>
     </com.example.krcm110.myapplication.app.ui.HorizontalScrollView>
     <!--顶部的导航条-->

@@ -48,7 +48,7 @@ class ExceptionHandle {
                     LogUtil.d("TAG", "未知错误Debug调试 ")
                 }
 
-                errorMsg = "未知错误，可能抛锚了吧~"
+                errorMsg = "未知错误，咋办?~"
                 errorCode = ErrorStatus.UNKNOWN_ERROR
             }
             return errorMsg

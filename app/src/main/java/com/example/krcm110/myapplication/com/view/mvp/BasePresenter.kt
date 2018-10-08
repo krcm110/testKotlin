@@ -39,7 +39,6 @@ open class BasePresenter<T : IBaseView> : IPresenter<T> {
     fun checkViewAttached() {
         if (!isViewAttached) throw MvpViewNotAttachedException()
     }
-
     /**
      * 将创建的RX赋值给compositeDisposable进行统一管理
      */
