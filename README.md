@@ -11,6 +11,7 @@
 9.SmartRefreshLayout<br>
 10.multiple-status-view<br>
 11.bga-banner<br>
+12.recyclerview
 
 ![image](https://github.com/krcm110/testKotlin/blob/master/screenshot/one.png)
 ![image](https://github.com/krcm110/testKotlin/blob/master/screenshot/诵读.png)
