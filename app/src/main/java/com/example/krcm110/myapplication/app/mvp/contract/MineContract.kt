@@ -4,7 +4,7 @@ import com.example.krcm110.myapplication.app.mvp.model.ben.HomeBean
 import com.example.krcm110.myapplication.com.view.mvp.IBaseView
 import com.example.krcm110.myapplication.com.view.mvp.IPresenter
 
-class HomeContract {
+class MineContract {
     interface View : IBaseView {
         /**
          * 设置第一次请求的数据

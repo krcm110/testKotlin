@@ -1,12 +1,12 @@
 package com.example.krcm110.myapplication.app.mvp.presenter
 
-import com.example.krcm110.myapplication.app.mvp.contract.HomeContract
+import com.example.krcm110.myapplication.app.mvp.contract.MineContract
 import com.example.krcm110.myapplication.app.mvp.model.HomeModel
 import com.example.krcm110.myapplication.app.mvp.model.ben.HomeBean
 import com.example.krcm110.myapplication.com.net.ExceptionHandle
 import com.example.krcm110.myapplication.com.view.mvp.BasePresenter
 
-class MinePresenter:BasePresenter<HomeContract.View>(), HomeContract.Presenter {
+class MinePresenter:BasePresenter<MineContract.View>(), MineContract.Presenter {
     private var vidoHomeBean: HomeBean? = null //最终生成的数据
 
     private var nextPageUrl:String?=null     //加载首页的Banner 数据+一页数据合并后，nextPageUrl没 add
@@ -68,6 +68,31 @@ class MinePresenter:BasePresenter<HomeContract.View>(), HomeContract.Presenter {
         get() = mRootView != null
 
     override fun loadMoreData() {
+        val disposable = nextPageUrl?.let {
+            homeModel.loadMoreData(it)
+                    .subscribe({ homeBean->
+                        mRootView?.apply {
+                            //过滤掉 Banner2(包含广告,等不需要的 Type), 具体查看接口分析
+                            val newItemList = homeBean.issueList[0].itemList
+                            newItemList.filter { item ->
+                                item.type=="banner2"||item.type=="horizontalScrollCard"
+                            }.forEach{ item ->
+                                //移除 item
+                                newItemList.remove(item)
+                            }
 
+                            nextPageUrl = homeBean.nextPageUrl
+                            getView()?.setMoreData(newItemList)
+                        }
+
+                    },{ t ->
+                        mRootView?.apply {
+                            getView()?.showError(ExceptionHandle.handleException(t),ExceptionHandle.errorCode)
+                        }
+                    })
+        }
+        if (disposable != null) {
+            addSubscription(disposable)
+        }
     }
 }

@@ -62,7 +62,7 @@ class MineAdapter(context :Context,arrayList: ArrayList<HomeBean.Issue.Item>) : 
     override fun getItemCount(): Int {
         return when {
             mData.size > bannerItemSize -> mData.size - bannerItemSize + 1
-            mData.isEmpty() -> 0
+            mData.isEmpty() -> 0//有False没有True
             else -> 1
         }
     }
@@ -97,7 +97,6 @@ class MineAdapter(context :Context,arrayList: ArrayList<HomeBean.Issue.Item>) : 
                                         .transition(com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions().crossFade())
                                         .placeholder(R.drawable.placeholder_banner)
                                         .into(imageView!!)
-
                             }
                         })
                     }

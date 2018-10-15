@@ -63,14 +63,6 @@
             app:tl_underline_color="@color/google_yellow"
             android:layout_height="60dp">
         </com.example.krcm110.myapplication.com.Utils.CommonTabLayoutBulge>
-       <!-- <com.example.krcm110.myapplication.com.view.custom.button.ImageBtnSwitch
-            android:id="@+id/btn_table_center"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            app:normalStatus="@mipmap/tab_main_center"
-            app:selectStatus="@mipmap/tab_main_center"/>-->
         <com.example.krcm110.myapplication.com.view.custom.button.ImageBtnSwitch
             android:id="@+id/btn_table_center"
             android:layout_alignParentBottom="true"

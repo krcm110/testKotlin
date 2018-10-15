@@ -10,6 +10,8 @@ import com.example.krcm110.myapplication.com.view.custom.button.supper.BtnSwitch
 
 class ImageBtnSwitch(contex:Context, attrs:AttributeSet?): BtnSwitch(contex,attrs), ISwitchBtnImage
 {
+
+
     /**
      * 切换后的图片
      */
