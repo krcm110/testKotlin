@@ -11,6 +11,7 @@ import com.example.krcm110.myapplication.app.mvp.model.ben.HomeBean
 import com.example.krcm110.myapplication.app.mvp.presenter.MinePresenter
 import com.example.krcm110.myapplication.app.showToast
 import com.example.krcm110.myapplication.app.ui.adapter.MineAdapter
+import com.example.krcm110.myapplication.com.Utils.StatusBarUtil
 import com.example.krcm110.myapplication.com.view.mvp.BaseFragment
 import com.example.krcm110.myapplication.com.net.excption.ErrorStatus
 import kotlinx.android.synthetic.main.fragment_mine.*
@@ -34,13 +35,16 @@ class MineFragment: BaseFragment(), MineContract.View {
 
     private var loadingMore = false
     /**
-     * 数据加载类
+     * 初始化完成后默认加载数据
      */
     override fun lazyLoad() {
         mPresenter.requestHomeData(num)
     }
 
 
+    /**
+     * 多动加载更多数据
+     */
     override fun setHomeData(homeBean: HomeBean) {
         mLayoutStatusView?.showContent()
         // Adapter
@@ -52,10 +56,16 @@ class MineFragment: BaseFragment(), MineContract.View {
         mRecyclerView.itemAnimator = DefaultItemAnimator()
     }
 
+    /**
+     * 创建RecyleView的布局样式
+     */
     private val linearLayoutManager by lazy {
         LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
     }
 
+    /**
+     * 重写Recyleview的事件监听
+     */
     private fun addRecyleViewEvent()
     {
         //下拉加载更多
@@ -66,6 +76,7 @@ class MineFragment: BaseFragment(), MineContract.View {
                 //判断是否滚动停止
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     val childCount = mRecyclerView.childCount
+                    //linearLayoutManager.itemCount
                     val itemCount = mRecyclerView.layoutManager.itemCount
                     //查找第一个可见的item的position
                     val firstVisibleItem = (mRecyclerView.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
@@ -78,8 +89,8 @@ class MineFragment: BaseFragment(), MineContract.View {
                 }
             }
 
-            //当RecycleView滑动之后被回调
-            //设置标题
+            //当RecycleView滚动时回调
+            //设置滚动时候显示的类型标题
             override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 val currentVisibleItemPosition = linearLayoutManager.findFirstVisibleItemPosition()
@@ -105,6 +116,9 @@ class MineFragment: BaseFragment(), MineContract.View {
         })
     }
 
+    /**
+     * 格式化时间
+     */
     private val simpleDateFormat by lazy {
         SimpleDateFormat("- MMM. dd, 'Brunch' -", Locale.ENGLISH)
     }
@@ -113,9 +127,9 @@ class MineFragment: BaseFragment(), MineContract.View {
         return resources.getColor(colorId)
     }
 
-
-
-
+    /**
+     * 下拉加载数据完成
+     */
     override fun setMoreData(itemList: ArrayList<HomeBean.Issue.Item>) {
         loadingMore = false
         mMineAdapter?.addItemData(itemList)
@@ -158,6 +172,10 @@ class MineFragment: BaseFragment(), MineContract.View {
         mPresenter.attachView(this)
         //内容跟随偏移
         addRecyleViewEvent();
+        //设置状态栏
+        StatusBarUtil.darkMode(activity!!)
+        //把Toobar进行加高
+        StatusBarUtil.setPaddingSmart(activity!!, toolbar)
     }
 
 
@@ -166,6 +184,11 @@ class MineFragment: BaseFragment(), MineContract.View {
      */
     override fun getLayoutId(): Int {
         return R.layout.fragment_mine
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mPresenter.detachView()
     }
 
     companion object {

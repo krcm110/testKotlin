@@ -2,7 +2,9 @@ package com.example.krcm110.myapplication.app.ui.fragment
 
 import android.os.Bundle
 import com.example.krcm110.myapplication.R
+import com.example.krcm110.myapplication.com.Utils.MobileInfor
 import com.example.krcm110.myapplication.com.view.mvp.BaseFragment
+import kotlinx.android.synthetic.main.fragment_hot.*
 
 class HotFragment: BaseFragment() {
     private var mTitle:String = "";
@@ -11,7 +13,7 @@ class HotFragment: BaseFragment() {
     }
 
     override fun lazyLoad() {
-
+        textView.text = MobileInfor.getInfor;
     }
 
     override fun getLayoutId(): Int {

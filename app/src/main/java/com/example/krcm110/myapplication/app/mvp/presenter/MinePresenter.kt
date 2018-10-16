@@ -74,13 +74,7 @@ class MinePresenter:BasePresenter<MineContract.View>(), MineContract.Presenter {
                         mRootView?.apply {
                             //过滤掉 Banner2(包含广告,等不需要的 Type), 具体查看接口分析
                             val newItemList = homeBean.issueList[0].itemList
-                            newItemList.filter { item ->
-                                item.type=="banner2"||item.type=="horizontalScrollCard"
-                            }.forEach{ item ->
-                                //移除 item
-                                newItemList.remove(item)
-                            }
-
+                            filterArrayData(newItemList);
                             nextPageUrl = homeBean.nextPageUrl
                             getView()?.setMoreData(newItemList)
                         }

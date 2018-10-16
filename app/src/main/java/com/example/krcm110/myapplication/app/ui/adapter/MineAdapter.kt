@@ -126,11 +126,11 @@ class MineAdapter(context :Context,arrayList: ArrayList<HomeBean.Issue.Item>) : 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommonHolder {
         return when (viewType) {
             ITEM_TYPE_BANNER ->
-                CommonHolder(inflaterView(R.layout.item_home_banner, parent))
+                CommonHolder(inflaterView(R.layout.item_home_banner, parent))//Banner
             ITEM_TYPE_TEXT_HEADER ->
-                CommonHolder(inflaterView(R.layout.item_home_header, parent))
+                CommonHolder(inflaterView(R.layout.item_home_header, parent))//标题显示栏
             else ->
-                CommonHolder(inflaterView(R.layout.item_home_content, parent))
+                CommonHolder(inflaterView(R.layout.item_home_content, parent))//主要显示的内容包括图片和说明栏
         }
     }
 
@@ -200,8 +200,6 @@ class MineAdapter(context :Context,arrayList: ArrayList<HomeBean.Issue.Item>) : 
         holder.setOnItemClickListener(listener = View.OnClickListener {
             //goToVideoPlayer(mContext as Activity, holder.getView(R.id.iv_cover_feed), item)
         })
-
-
     }
 
     /**
